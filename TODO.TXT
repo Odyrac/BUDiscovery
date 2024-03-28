@@ -1,0 +1,8 @@
+- supprimer le mode debug de longbutton
+- supprimer le mode debug chrono
+- supprimer le circlebutton de chapter
+
+- adapter le scénario HP aux 2 autres thèmes
+- traduction en anglais
+
+- système de MAJ via options

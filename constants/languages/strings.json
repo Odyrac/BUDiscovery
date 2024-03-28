@@ -1,0 +1,35 @@
+{
+
+    "buttonNext": "Suivant",
+    "buttonHereWeAre": "Nous y sommes !",
+    "buttonFind": "Trouvé !",
+    "buttonCheck": "Vérifier",
+    
+    "confirmHomeTitle": "Quitter",
+    "confirmHomeDesc": "Souhaitez-vous retourner au menu et quitter la partie ?\nVotre progression ne sera pas sauvegardée !",
+
+    "creditsTitle": "Crédits",
+    "creditsDesc": "Cette application a été développée dans le cadre d'un Projet Étudiant mené par Louis Halley lors du semestre P24 à l'UTT.\n\nLes contenus multimédias inclus dans cette application sont à usage pédagogique.\n\nPour toute question, merci de vous adresser à l'accueil de la bibliothèque.",
+
+    "welcomeTitle": "Bienvenue",
+    "welcomeDesc": "Afin de vous accompagner dans votre arrivée à l’UTT, cette application va vous présenter, au travers d’un jeu de piste, les services de la bibliothèque.\n\nCe service résulte d’un Projet Étudiant mené au semestre P24.\nPour toute question, merci de vous adresser à l’accueil de la bibliothèque.",
+
+    "groupNameDesc": "Trouvez un nom de groupe, puis entrez le ci-dessous :",
+    "groupNamePlaceholder": "Nom du groupe",
+    "groupNameEmpty": "Veuillez entrer un nom de groupe.",
+
+    "choiceThemeTitle": "Choisissez un thème",
+    "choiceThemeDesc": "Le thème permettra de personnaliser votre expérience de jeu !",
+    "disabledText": "Non disponible",
+
+    "chronoTitle": "Préparez-vous !",
+    "chronoGo": "Go !",
+
+    "questString": "~ Quête ~",
+
+    "tipBookSearch": "Quand tu cherches un livre, tu peux d’abord rechercher sa cote sur le site de la bibliothèque, elle te guidera parmi les étagères !",
+    "tipBookSearchButton": "Site de la bibliothèque",
+    "tipBookSearchURL": "https://bibliotheque.utt.fr/",
+
+    "gameEnd": "Vous avez terminé le jeu de piste !\n\nMerci de rapporter le matériel prêté à l'accueil de la bibliothèque."
+}
