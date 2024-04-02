@@ -10,7 +10,7 @@
     "startingPointQuest2Placeholder": "Enter the author's name",
     "startingPointQuest2Error": "Incorrect answer!",
     "startingPointQuest2AnswerLevel0": "Cicéron",
-    "startingPointQuest2AnswerLevel1": "Bachelard",
+    "startingPointQuest2AnswerLevel1": "Gaston Bachelard",
     "startingPoint4": "Mmm... Maybe you're not such bad wizards after all...",
 
     "bookSearch1": "Hi! I hope McGonagall didn't scare you too much... I'm sure she'd be cooler with you if you brought back her favorite book!",
@@ -39,22 +39,22 @@
     "comicSpaceQuest2": "Find a quote related to the comic & manga area.",
     "comicSpaceQuest2Placeholder": "Enter the author's name",
     "comicSpaceQuest2Error": "Incorrect answer!",
-    "comicSpaceQuest2Answer": "Ichiguchi",
+    "comicSpaceQuest2Answer": "Keiko Ichiguchi",
     "comicSpace3": "Ah, you reassure me! For a moment, I thought you were infiltrated Slytherins...",
 
     "workRoom1": "Hey, come back here!\n\nThe library is also a place for work and quiet... But if you ever want to work in groups, it's possible!",
-    "workRoomQuest1": "Find workroom no. 1.",
+    "workRoomQuest1": "Find workroom no. 8.",
     "workRoom2": "These workrooms can be booked via the Affluences mobile app (minimum 3 people)!",
     "workRoomQuest2": "Find a quote related to the room.",
     "workRoomQuest2Placeholder": "Enter the author's name",
     "workRoomQuest2Error": "Incorrect answer!",
-    "workRoomQuest2Answer": "Mandela",
+    "workRoomQuest2Answer": "Nelson Mandela",
 
     "libraryHours1": "It's me again!\n\nI saw how well you handled the library website... I hope you noted the opening hours!",
     "libraryHoursQuest1": "Find the latest possible closing time.",
-    "libraryHoursQuest1Placeholder": "Enter a number",
+    "libraryHoursQuest1Placeholder": "Enter a schedule",
     "libraryHoursQuest1Error": "Incorrect answer!",
-    "libraryHoursQuest1Answer": "22",
+    "libraryHoursQuest1Answer": "22h",
     "libraryHours2": "You're really good!\n\nI'm sure you'll enjoy it here!",
 
 

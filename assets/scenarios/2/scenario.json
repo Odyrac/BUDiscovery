@@ -12,8 +12,8 @@
     "startingPointQuest2": "Trouvez une citation autour de votre point de départ.",
     "startingPointQuest2Placeholder": "Entrez le nom de l'auteur",
     "startingPointQuest2Error": "Réponse incorrecte !",
-    "startingPointQuest2AnswerLevel0": "Huxley",
-    "startingPointQuest2AnswerLevel1": "Kundera",
+    "startingPointQuest2AnswerLevel0": "Aldous Huxley",
+    "startingPointQuest2AnswerLevel1": "Milan Kundera",
     "startingPoint4": "Hmm... Vous montrez des compétences qui pourraient vous mener loin dans la voie de la Force...",
 
     "bookSearch1": "Salutations ! J’espère que Luke ne vous a pas trop intimidés... Je suis sûr qu'il serait plus sympa avec vous si vous lui rapportiez son livre préféré !",
@@ -42,22 +42,22 @@
     "comicSpaceQuest2": "Trouvez une citation autour de l’espace BD & mangas.",
     "comicSpaceQuest2Placeholder": "Entrez le nom de l'auteur",
     "comicSpaceQuest2Error": "Réponse incorrecte !",
-    "comicSpaceQuest2Answer": "Ichiguchi",
+    "comicSpaceQuest2Answer": "Keiko Ichiguchi",
     "comicSpace3": "Ah, vous me rassurez ! J'ai craint un instant que vous soyez des agents du Côté Obscur...",
 
     "workRoom1": "Hé, revenez par ici !\n\nLe Temple Jedi est aussi un lieu de travail et de concentration... Mais si vous avez besoin de travailler en groupe, nous avons des salles prévues à cet effet !",
-    "workRoomQuest1": "Trouvez la salle de travail n°2.",
+    "workRoomQuest1": "Trouvez la salle de travail n°9.",
     "workRoom2": "Ces salles de travail sont réservables sur l’application mobile Affluences (minimum 3 personnes) !",
     "workRoomQuest2": "Trouvez une citation autour de la salle.",
     "workRoomQuest2Placeholder": "Entrez le nom de l'auteur",
     "workRoomQuest2Error": "Réponse incorrecte !",
-    "workRoomQuest2Answer": "Einstein",
+    "workRoomQuest2Answer": "Albert Einstein",
 
     "libraryHours1": "C'est encore moi !\n\nJ'ai vu à quel point vous vous êtes bien débrouillés avec le site de la bibliothèque... J'espère que vous avez bien noté les horaires !",
     "libraryHoursQuest1": "Trouvez l'heure de fermeture la plus tardive possible.",
-    "libraryHoursQuest1Placeholder": "Entrez un nombre",
+    "libraryHoursQuest1Placeholder": "Entrez un horaire",
     "libraryHoursQuest1Error": "Réponse incorrecte !",
-    "libraryHoursQuest1Answer": "22",
+    "libraryHoursQuest1Answer": "22h",
     "libraryHours2": "Vous montrez des aptitudes impressionnantes !\n\nVous deviendrez un Jedi accompli, j'en suis convaincu !",
 
 
