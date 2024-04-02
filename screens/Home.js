@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ImageBackground, Touchable, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, ImageBackground, Touchable, TouchableOpacity, Alert } from 'react-native';
 
 import Bubble from './../components/Bubble';
 import LongButton from './../components/LongButton';
@@ -7,6 +7,7 @@ import CircleButton from './../components/CircleButton';
 import globalStyles from '../constants/GlobalStyles';
 import TopBar from '../components/TopBar';
 import Colors from '../constants/Colors';
+import Settings from '../constants/Settings';
 
 
 export default function HomeScreen({ navigation, route }) {
@@ -56,7 +57,7 @@ export default function HomeScreen({ navigation, route }) {
                 </View>
 
                 <LongButton text="Lancer une partie" onPress={() => navigation.navigate('Welcome', { language: language, startingPoint: startingPoint })} />
-                <LongButton text="Options du jeu" color="transparent" onPress={() => navigation.navigate('Test')} />
+                <LongButton text="Options du jeu" color="transparent" onPress={() => Settings.debugMode ? navigation.navigate('Test') : Alert.alert("Information", "Cette fonctionnalité n'est pas encore disponible.")} />
 
 
 
