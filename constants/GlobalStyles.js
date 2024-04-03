@@ -5,7 +5,7 @@ import Colors from './Colors';
 const globalStyles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: Colors.mediumBlue,
+        backgroundColor: Colors.veryDarkBlue,
         alignItems: 'center',
         justifyContent: 'center',
     },

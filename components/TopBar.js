@@ -71,7 +71,7 @@ const TopBar = props => {
                     <ImageBackground source={require('./../assets/img/bg.png')} style={{ width: '100%', height: '100%', position: 'absolute' }} />
             }
 
-            <StatusBar style="auto" />
+            <StatusBar style="light" />
 
 
             <View style={styles.topContainer}>

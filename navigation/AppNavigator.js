@@ -2,6 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
+import { View } from 'react-native';
 
 import TestScreen from './../screens/Test';
 import HomeScreen from './../screens/Home';
@@ -15,8 +16,6 @@ const Stack = createNativeStackNavigator();
 
 const AppNavigator = () => {
   return (
-    <>
-      <StatusBar style="auto" />
       <NavigationContainer>
         <Stack.Navigator initialRouteName='Home'>
           <Stack.Screen name="Test" component={TestScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
@@ -25,15 +24,9 @@ const AppNavigator = () => {
           <Stack.Screen name="GroupName" component={GroupNameScreen} options={{ headerShown: false }} />
           <Stack.Screen name="ChoiceTheme" component={ChoiceThemeScreen} options={{ headerShown: false }} />
           <Stack.Screen name="Chrono" component={ChronoScreen} options={{ headerShown: false }} />
-
-
           <Stack.Screen name="GameController" component={GameControllerScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-
-
         </Stack.Navigator>
       </NavigationContainer>
-
-    </>
   );
 };
 
