@@ -7,6 +7,7 @@ import Colors from "../constants/Colors";
 - text: the text to display inside the button
 - icon: the icon to display inside the button
 - onPress: the function to call when the button is pressed
+- style: the style of the button
 
 */
 
@@ -15,7 +16,7 @@ const IconTextButton = props => {
 
     return (
 
-        <TouchableOpacity onPress={props.onPress} activeOpacity={0.8} style={[styles.button]}>
+        <TouchableOpacity onPress={props.onPress} activeOpacity={0.8} style={[styles.button, props.style]}>
             {props.icon &&
                 <Image source={props.icon} style={styles.img} />
             }

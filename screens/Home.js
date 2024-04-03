@@ -8,6 +8,7 @@ import globalStyles from '../constants/GlobalStyles';
 import TopBar from '../components/TopBar';
 import Colors from '../constants/Colors';
 import Settings from '../constants/Settings';
+import { getAppStrings } from '../functions/LanguageUtils';
 
 
 export default function HomeScreen({ navigation, route }) {
@@ -17,6 +18,7 @@ export default function HomeScreen({ navigation, route }) {
     const [startingPoint, setStartingPoint] = React.useState('level0');
 
 
+    const appSringsFR = getAppStrings('fr');
 
 
     return (
@@ -26,6 +28,12 @@ export default function HomeScreen({ navigation, route }) {
             <TopBar type="credits" title="Portail BU" language="fr" />
 
             <View style={[globalStyles.containerTopBar, globalStyles.containerTopBarCenterVertical]}>
+                
+                <>
+                    <Text style={styles.versionText}>Version {appSringsFR.version}</Text>
+                    <Text style={styles.debugText}>{Settings.debugMode ? 'Debug mode ACTIVÉ' : ''}</Text>
+                </>
+
                 <Bubble text="Configurez la partie avant de confier la tablette aux étudiants." />
 
                 <View style={styles.languageView}>
@@ -45,16 +53,17 @@ export default function HomeScreen({ navigation, route }) {
                 <View style={styles.languageView}>
                     <TouchableOpacity onPress={() => setStartingPoint('level0')} activeOpacity={0.8} style={[styles.languageButton, { borderColor: startingPoint == 'level0' ? Colors.orange : 'transparent' }]}>
                         <Bubble title="Départ" colorTitle="white" style={{ maxWidth: '100%' }}>
-                           <Text style={styles.levelText}>RDC</Text>
+                            <Text style={styles.levelText}>RDC</Text>
                         </Bubble>
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={() => setStartingPoint('level1')} activeOpacity={0.8} style={[styles.languageButton, { borderColor: startingPoint == 'level1' ? Colors.orange : 'transparent' }]}>
                         <Bubble text="" title="Départ" colorTitle="white" style={{ maxWidth: '100%' }}>
-                        <Text style={styles.levelText}>Étage</Text>
+                            <Text style={styles.levelText}>Étage</Text>
                         </Bubble>
                     </TouchableOpacity>
                 </View>
+
 
                 <LongButton text="Lancer une partie" onPress={() => navigation.navigate('Welcome', { language: language, startingPoint: startingPoint })} />
                 <LongButton text="Options du jeu" color="transparent" onPress={() => Settings.debugMode ? navigation.navigate('Test') : Alert.alert("Information", "Cette fonctionnalité n'est pas encore disponible.")} />
@@ -68,8 +77,8 @@ export default function HomeScreen({ navigation, route }) {
 const styles = StyleSheet.create({
     languageButton: {
         marginHorizontal: 10,
-        borderRadius: 14,
-        borderWidth: 5,
+        borderRadius: 20,
+        borderWidth: 8,
     },
 
     languageView: {
@@ -92,5 +101,23 @@ const styles = StyleSheet.create({
         color: Colors.mediumBlue,
         fontFamily: 'Digitalt',
         textAlign: 'center',
+    },
+
+    versionText: {
+        position: 'absolute',
+        bottom: 10,
+        right: 10,
+        color: Colors.darkGrey,
+        fontFamily: 'DMSans-Bold',
+        fontSize: 12,
+    },
+
+    debugText: {
+        position: 'absolute',
+        bottom: 10,
+        left: 10,
+        color: Colors.darkGrey,
+        fontFamily: 'DMSans-Bold',
+        fontSize: 12,
     }
 });

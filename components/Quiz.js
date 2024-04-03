@@ -200,7 +200,7 @@ const Quiz = props => {
 
                 {correctAnswer != undefined &&
                     <View style={styles.quizContainer}>
-                        <Bubble text={quizStrings.help} style={{ marginBottom: 10 }} theme='red' />
+                        <Bubble text={quizStrings.help} style={{ marginBottom: 20 }} theme='red' />
                         <TouchableOpacity style={[styles.answerContainer, { backgroundColor: !acceptVote && correctAnswer.includes(1) ? Colors.darkGreen : answersFocus.includes(1) ? Colors.lightWhite : 'transparent' }]} onPress={() => answerFocus(1)} activeOpacity={0.8}>
                             <Text style={[styles.answerText, { color: !acceptVote && correctAnswer.includes(1) ? Colors.lightWhite : answersFocus.includes(1) ? Colors.mediumRed : Colors.lightWhite }]}>{answer1}</Text>
                         </TouchableOpacity>

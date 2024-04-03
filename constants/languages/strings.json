@@ -1,4 +1,7 @@
 {
+    "version": "1.0.1 [TEST]",
+
+
 
     "buttonNext": "Suivant",
     "buttonHereWeAre": "Nous y sommes !",
@@ -24,6 +27,7 @@
 
     "chronoTitle": "Préparez-vous !",
     "chronoGo": "Go !",
+    "chronoText": "Chrono : ",
 
     "questString": "~ Quête ~",
 
@@ -31,5 +35,6 @@
     "tipBookSearchButton": "Site de la bibliothèque",
     "tipBookSearchURL": "https://bibliotheque.utt.fr/",
 
-    "gameEnd": "Vous avez terminé le jeu de piste !\n\nMerci de rapporter le matériel prêté à l'accueil de la bibliothèque."
+    "gameEnd": "Vous avez terminé le jeu de piste !\n\nMerci de rapporter le matériel prêté à l'accueil de la bibliothèque.",
+    "feedback": "Une idée/un bug ?"
 }

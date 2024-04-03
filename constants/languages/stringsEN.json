@@ -23,6 +23,7 @@
 
     "chronoTitle": "Get ready!",
     "chronoGo": "Go!",
+    "chronoText": "Chrono: ",
 
     "questString": "~ Quest ~",
 
@@ -30,5 +31,6 @@
     "tipBookSearchButton": "Library website",
     "tipBookSearchURL": "https://bibliotheque.utt.fr/",
 
-    "gameEnd": "You have completed the scavenger hunt!\n\nPlease return the borrowed equipment to the library reception."
+    "gameEnd": "You have completed the scavenger hunt!\n\nPlease return the borrowed equipment to the library reception.",
+    "feedback": "An idea/bug?"
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ImageBackground, TextInput, Animated } from 'react-native';
+import { StyleSheet, Text, View, Image, ImageBackground, TextInput, Animated, Linking } from 'react-native';
 
 import Bubble from './../components/Bubble';
 import TopBar from '../components/TopBar';
@@ -81,6 +81,7 @@ const Chapter = props => {
     }
 
     function actionButton() {
+        setTimerButton(undefined);
         if (subchapter != 3 && subchapter != 4) {
             setSubchapter(subchapter + 1);
         } else if (subchapter == 4) {
@@ -145,7 +146,11 @@ const Chapter = props => {
 
         } else if (subchapter == 4) {
             if (props.string4 != undefined) {
-                setTimerButton(2);
+                let timer = 2;
+                if (finalScore != undefined) {
+                    timer = 20;
+                }
+                setTimerButton(timer);
                 setToggleBubbleAnimation(!toggleBubbleAnimation);
                 setTimeout(() => {
                     setText(props.string4);
@@ -208,7 +213,8 @@ const Chapter = props => {
 
                 {finalScore != undefined &&
                     <View style={[{ position: 'absolute', bottom: 270, right: 100, maxWidth: 350, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }]}>
-                        <Bubble title={`Chrono : ${finalScore}`} style={{ maxWidth: '100%' }} titleStyle={{marginBottom: 0}} />
+                        <Bubble title={`${appStrings.chronoText}${finalScore}`} style={{ maxWidth: '100%' }} titleStyle={{marginBottom: 0}} />
+                        <IconTextButton text={appStrings.feedback} onPress={() => Linking.openURL('https://forms.gle/Tzwe2NXoWopPwUhs9')} icon={require('./../assets/img/link.png')} style={{marginTop: 30}} />
                     </View>
                 }
 
