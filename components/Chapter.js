@@ -180,7 +180,7 @@ const Chapter = props => {
 
         <View style={globalStyles.container}>
 
-            <TopBar type="all" navigation={props.navigation} title={scenarioStrings.title} startTimestamp={props.startTimestamp} />
+            <TopBar type="all" navigation={props.navigation} title={scenarioStrings.title} startTimestamp={props.startTimestamp} language={props.language} />
 
             <View style={[globalStyles.containerTopBar]}>
 

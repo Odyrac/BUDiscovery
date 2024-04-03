@@ -5,6 +5,8 @@ import { Animated } from 'react-native';
 - toggleAnimation: a boolean that triggers the animation
 - onlyStart: a boolean which, if true, will only start the animation when toggleAnimation is triggered
 - onlyStartAndStay: a boolean which, if true, will only start the animation when toggleAnimation is triggered and will stay at the end of the animation
+- durationAnim: the duration of the animation
+- onlyStartAndStayOnce: a boolean which, if true, will only start the animation once
 
 */
 

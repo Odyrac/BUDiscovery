@@ -17,7 +17,7 @@ const ErrorBox = props => {
     // the scale animation
     let interpolatedScaleAnimation;
     if (props.animation == true) {
-        interpolatedScaleAnimation = ScaleAnimation(props.toggleBubbleAnimation);
+        interpolatedScaleAnimation = ScaleAnimation(props.toggleBubbleAnimation, false, true);
     } else {
         interpolatedScaleAnimation = 1;
     }

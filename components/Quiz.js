@@ -185,7 +185,7 @@ const Quiz = props => {
 
         <View style={globalStyles.container}>
 
-            <TopBar type="all" navigation={props.navigation} title={scenarioStrings.title} startTimestamp={startTimestamp} background='red' />
+            <TopBar type="all" navigation={props.navigation} title={scenarioStrings.title} startTimestamp={startTimestamp} background='red' language={props.language} />
             
 
             <View style={[globalStyles.containerTopBar]}>
