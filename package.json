@@ -1,6 +1,6 @@
 {
   "name": "budiscovery",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "scripts": {
     "start": "expo start --go",
     "android": "expo run:android",
