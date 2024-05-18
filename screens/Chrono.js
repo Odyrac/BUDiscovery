@@ -9,7 +9,7 @@ import TopBar from '../components/TopBar';
 import Input from '../components/Input';
 import ErrorBox from '../components/ErrorBox';
 
-import { getAppStrings } from '../functions/LanguageUtils';
+import { useAppStrings } from '../functions/LanguageUtils';
 import ScaleAnimation from '../functions/ScaleAnimation';
 import Colors from '../constants/Colors';
 import Settings from '../constants/Settings';
@@ -18,7 +18,7 @@ import Settings from '../constants/Settings';
 export default function ChronoScreen({ navigation, route }) {
 
 
-    const appStrings = getAppStrings(route.params.language);
+    const appStrings = useAppStrings(route.params.language);
 
     const [chrono, setChrono] = React.useState(3);
 

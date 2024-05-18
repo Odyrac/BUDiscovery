@@ -5,7 +5,7 @@ import Bubble from './../components/Bubble';
 import TopBar from '../components/TopBar';
 import globalStyles from '../constants/GlobalStyles';
 import DisableBackButton from './../functions/DisableBackButton';
-import { getAppStrings, getQuizStrings, getScenarioStrings } from '../functions/LanguageUtils';
+import { useAppStrings, getQuizStrings, getScenarioStrings } from '../functions/LanguageUtils';
 import LongButton from '../components/LongButton';
 import Avatar from '../components/Avatar';
 import { getAvatar } from '../functions/AvatarUtils';
@@ -36,7 +36,7 @@ const Quiz = props => {
     DisableBackButton();
 
     const scenarioStrings = getScenarioStrings(props.scenario, props.language);
-    const appStrings = getAppStrings(props.language);
+    const appStrings = useAppStrings(props.language);
     const quizStrings = getQuizStrings(props.language);
 
     const avatarImage = getAvatar(props.scenario, 'bad');

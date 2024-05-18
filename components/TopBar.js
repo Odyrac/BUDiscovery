@@ -7,7 +7,7 @@ import CircleButton from "./CircleButton";
 import BubblePopUp from "./BubblePopUp";
 
 import Colors from "../constants/Colors";
-import { getAppStrings } from "../functions/LanguageUtils";
+import { useAppStrings } from "../functions/LanguageUtils";
 
 /* list of props that can be passed to the TopBar component
 - type: all/credits/none (default: all - need navigation parameter)
@@ -21,7 +21,7 @@ import { getAppStrings } from "../functions/LanguageUtils";
 const TopBar = props => {
 
 
-    const appStrings = getAppStrings(props.language);
+    const appStrings = useAppStrings(props.language);
 
 
     const [creditsShown, setCreditsShown] = React.useState(false);

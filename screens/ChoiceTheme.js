@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, ImageBackground } from 'react-native';
 
-import { getAppStrings } from '../functions/LanguageUtils';
+import { useAppStrings } from '../functions/LanguageUtils';
 import { getScenarioStrings } from '../functions/LanguageUtils';
 
 import Bubble from './../components/Bubble';
@@ -17,7 +17,7 @@ import Card from './../components/Card';
 
 export default function ChoiceThemeScreen({ navigation, route }) {
 
-    const appStrings = getAppStrings(route.params.language);
+    const appStrings = useAppStrings(route.params.language);
 
     const scenario1Strings = getScenarioStrings(1, route.params.language);
     const scenario2Strings = getScenarioStrings(2, route.params.language);

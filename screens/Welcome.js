@@ -6,14 +6,14 @@ import LongButton from './../components/LongButton';
 import globalStyles from '../constants/GlobalStyles';
 import TopBar from '../components/TopBar';
 
-import { getAppStrings } from '../functions/LanguageUtils';
+import { useAppStrings } from '../functions/LanguageUtils';
 import Colors from '../constants/Colors';
 
 
 export default function WelcomeScreen({ navigation, route }) {
 
 
-    const appStrings = getAppStrings(route.params.language);
+    const appStrings = useAppStrings(route.params.language);
 
 
     return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, ImageBackground, Touchable, TouchableOpacity, Linking } from 'react-native';
 import Chapter from '../components/Chapter';
-import { getAppStrings, getScenarioStrings } from '../functions/LanguageUtils';
+import { useAppStrings, getScenarioStrings } from '../functions/LanguageUtils';
 import IconTextButton from '../components/IconTextButton';
 import Colors from '../constants/Colors';
 import Quiz from '../components/Quiz';
@@ -12,7 +12,7 @@ import Quiz from '../components/Quiz';
 export default function GameControllerScreen({ navigation, route }) {
 
     const scenarioStrings = getScenarioStrings(route.params.scenario, route.params.language);
-    const appStrings = getAppStrings(route.params.language);
+    const appStrings = useAppStrings(route.params.language);
 
     const [questNumber, setQuestNumber] = React.useState(route.params.questNumber);
 

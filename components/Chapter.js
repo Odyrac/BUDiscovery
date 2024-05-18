@@ -5,7 +5,7 @@ import Bubble from './../components/Bubble';
 import TopBar from '../components/TopBar';
 import globalStyles from '../constants/GlobalStyles';
 import DisableBackButton from './../functions/DisableBackButton';
-import { getAppStrings, getScenarioStrings } from '../functions/LanguageUtils';
+import { useAppStrings, getScenarioStrings } from '../functions/LanguageUtils';
 import LongButton from '../components/LongButton';
 import Avatar from '../components/Avatar';
 import { getAvatar } from '../functions/AvatarUtils';
@@ -56,7 +56,7 @@ const Chapter = props => {
     DisableBackButton();
 
     const scenarioStrings = getScenarioStrings(props.scenario, props.language);
-    const appStrings = getAppStrings(props.language);
+    const appStrings = useAppStrings(props.language);
 
     const avatarImage = getAvatar(props.scenario, props.avatarImage);
 

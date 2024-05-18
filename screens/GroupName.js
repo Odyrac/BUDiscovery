@@ -9,13 +9,13 @@ import TopBar from '../components/TopBar';
 import Input from '../components/Input';
 import ErrorBox from '../components/ErrorBox';
 
-import { getAppStrings } from '../functions/LanguageUtils';
+import { useAppStrings } from '../functions/LanguageUtils';
 
 
 export default function GroupNameScreen({ navigation, route }) {
 
 
-    const appStrings = getAppStrings(route.params.language);
+    const appStrings = useAppStrings(route.params.language);
 
     const [askToggleInputCheck, setAskToggleInputCheck] = React.useState(false);
 

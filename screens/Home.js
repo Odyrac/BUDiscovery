@@ -8,7 +8,8 @@ import globalStyles from '../constants/GlobalStyles';
 import TopBar from '../components/TopBar';
 import Colors from '../constants/Colors';
 import Settings from '../constants/Settings';
-import { getAppStrings } from '../functions/LanguageUtils';
+import { useAppStrings } from '../functions/LanguageUtils';
+import { hasData } from '../functions/ServerUtils';
 
 
 export default function HomeScreen({ navigation, route }) {
@@ -17,20 +18,45 @@ export default function HomeScreen({ navigation, route }) {
 
     const [startingPoint, setStartingPoint] = React.useState('level0');
 
+    const appStringsFR = useAppStrings('fr');
 
-    const appSringsFR = getAppStrings('fr');
+
+
+    function launchGame() {
+        hasData().then((hasDataApp) => {
+            if (hasDataApp) {
+                navigation.navigate('Welcome', { language: language, startingPoint: startingPoint });
+            } else {
+                Alert.alert(
+                    'Données manquantes',
+                    'Les données de l\'application ne sont pas présentes. Il semble que ce soit le premier démarrage de l\'application. Veuillez synchroniser les données avant de lancer une partie.',
+                    [
+                        {
+                            text: 'Annuler',
+                            style: 'cancel'
+                        },
+                        {
+                            text: 'Télécharger',
+                            onPress: () => navigation.navigate('Settings'),
+                        }
+                    ]
+                )
+            }
+        })
+    }
 
 
     return (
 
         <View style={globalStyles.container}>
 
-            <TopBar type="credits" title="Portail BU" language="fr" />
+            {appStringsFR.version == 'OFFLINE' ? <TopBar type="none" title="Portail BU" /> : <TopBar type="credits" title="Portail BU" language="fr" />}
+
 
             <View style={[globalStyles.containerTopBar, globalStyles.containerTopBarCenterVertical]}>
-                
+
                 <>
-                    <Text style={styles.versionText}>Version {appSringsFR.version}</Text>
+                    <Text style={styles.versionText}>Version {appStringsFR.version}</Text>
                     <Text style={styles.debugText}>{Settings.debugMode ? 'Debug mode ACTIVÉ' : ''}</Text>
                 </>
 
@@ -65,8 +91,8 @@ export default function HomeScreen({ navigation, route }) {
                 </View>
 
 
-                <LongButton text="Lancer une partie" onPress={() => navigation.navigate('Welcome', { language: language, startingPoint: startingPoint })} />
-                <LongButton text="Options du jeu" color="transparent" onPress={() => Settings.debugMode ? navigation.navigate('Test') : Alert.alert("Information", "Cette fonctionnalité n'est pas encore disponible.")} />
+                <LongButton text="Lancer une partie" onPress={() => launchGame()} />
+                <LongButton text="Options du jeu" color="transparent" onPress={() => Settings.debugMode ? navigation.navigate('Test') : navigation.navigate('Settings')} />
 
 
 
