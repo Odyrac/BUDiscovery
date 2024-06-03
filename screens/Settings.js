@@ -59,7 +59,7 @@ export default function SettingsScreen({ navigation, route }) {
                         if (!success) {
                             Alert.alert(
                                 'Erreur',
-                                'Impossible de mettre à jour les données. Vérifiez votre connexion internet et réessayez.',
+                                'Impossible de mettre à jour les données. Vérifiez votre connexion Internet et réessayez.',
                                 [
                                     {
                                         text: 'OK',
