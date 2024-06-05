@@ -20,10 +20,6 @@ const useAppStrings = (language) => {
 
 
 
-export { useAppStrings };
-
-
-
 const getAppStrings = async (language) => {
   switch (language) {
     case 'en':
@@ -54,26 +50,106 @@ const getAppStrings = async (language) => {
 };
 
 
-const getScenarioStrings = (scenario, language) => {
-  switch (language) {
-    case 'en':
-      if (scenario === 1) return require(`./../assets/scenarios/1/scenario1EN.json`);
-      if (scenario === 2) return require(`./../assets/scenarios/2/scenario2EN.json`);
-      if (scenario === 3) return require(`./../assets/scenarios/3/scenario3EN.json`);
+export { useAppStrings };
 
-    case 'fr':
-      if (scenario === 1) return require(`./../assets/scenarios/1/scenario1.json`);
-      if (scenario === 2) return require(`./../assets/scenarios/2/scenario2.json`);
-      if (scenario === 3) return require(`./../assets/scenarios/3/scenario3.json`);
 
-    default:
-      if (scenario === 1) return require(`./../assets/scenarios/1/scenario1.json`);
-      if (scenario === 2) return require(`./../assets/scenarios/2/scenario2.json`);
-      if (scenario === 3) return require(`./../assets/scenarios/3/scenario3.json`);
-  }
+const useScenarioStrings = (scenario, language) => {
+  const [scenarioStrings, setScenarioStrings] = React.useState({});
+
+  React.useEffect(() => {
+    async function fetchScenarioStrings() {
+      const strings = await getScenarioStrings(scenario, language);
+      strings ? setScenarioStrings(JSON.parse(strings)) : setScenarioStrings({ settings: { enabled: false } });
+    }
+
+    fetchScenarioStrings();
+  }, []);
+
+  return scenarioStrings;
 };
 
-const getQuizStrings = (language) => {
+const getScenarioStrings = async (scenario, language) => {
+  switch (language) {
+    case 'en':
+      try {
+        const contentEN = await FileSystem.readAsStringAsync(FileSystem.documentDirectory + `json/scenario${scenario}EN.json`);
+        return contentEN;
+      } catch (error) {
+        console.error('Error reading EN file:', error);
+        return null;
+      }
+    case 'fr':
+      try {
+        const contentFR = await FileSystem.readAsStringAsync(FileSystem.documentDirectory + `json/scenario${scenario}.json`);
+        return contentFR;
+      } catch (error) {
+        console.error('Error reading FR file:', error);
+        return null;
+      }
+    default:
+      try {
+        const contentFR = await FileSystem.readAsStringAsync(FileSystem.documentDirectory + `json/scenario${scenario}.json`);
+        return contentFR;
+      } catch (error) {
+        console.error('Error reading FR file:', error);
+        return null;
+      }
+  }
+}
+
+export { useScenarioStrings };
+
+
+const useQuizStrings = (language) => {
+  const [quizStrings, setQuizStrings] = React.useState({});
+
+  React.useEffect(() => {
+    async function fetchQuizStrings() {
+      const strings = await getQuizStrings(language);
+      strings ? setQuizStrings(JSON.parse(strings)) : setQuizStrings({});
+    }
+
+    fetchQuizStrings();
+  }, []);
+
+  return quizStrings;
+};
+
+const getQuizStrings = async (language) => {
+  switch (language) {
+    case 'en':
+      try {
+        const contentEN = await FileSystem.readAsStringAsync(FileSystem.documentDirectory + 'json/quizEN.json');
+        return contentEN;
+      } catch (error) {
+        console.error('Error reading EN file:', error);
+        return null;
+      }
+    case 'fr':
+      try {
+        const contentFR = await FileSystem.readAsStringAsync(FileSystem.documentDirectory + 'json/quiz.json');
+        return contentFR;
+      } catch (error) {
+        console.error('Error reading FR file:', error);
+        return null;
+      }
+    default:
+      try {
+        const contentFR = await FileSystem.readAsStringAsync(FileSystem.documentDirectory + 'json/quiz.json');
+        return contentFR;
+      } catch (error) {
+        console.error('Error reading FR file:', error);
+        return null;
+      }
+  }
+}
+
+export { useQuizStrings };
+
+
+
+/*
+const useQuizStrings = (language) => {
   switch (language) {
     case 'en':
       return require(`./../constants/languages/quizEN.json`);
@@ -84,8 +160,5 @@ const getQuizStrings = (language) => {
   }
 };
 
-
-
-export { getAppStrings };
-export { getScenarioStrings };
-export { getQuizStrings };
+export { useQuizStrings };
+*/

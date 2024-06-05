@@ -5,7 +5,7 @@ import Bubble from './../components/Bubble';
 import TopBar from '../components/TopBar';
 import globalStyles from '../constants/GlobalStyles';
 import DisableBackButton from './../functions/DisableBackButton';
-import { useAppStrings, getScenarioStrings } from '../functions/LanguageUtils';
+import { useAppStrings, useScenarioStrings } from '../functions/LanguageUtils';
 import LongButton from '../components/LongButton';
 import Avatar from '../components/Avatar';
 import { getAvatar } from '../functions/AvatarUtils';
@@ -46,6 +46,10 @@ import IconTextButton from './IconTextButton';
 - startTimestamp: the start timestamp
 - score: the final timestamp
 
+// explication : à partir de la 1.0.5, avec le système de mise à jour des textes, on ne peut plus les appeler à chaque component (renvoie des undefined le temps du chargement), il faut donc qu'ils soient passés sucessivement en paramètre depuis la page chrono qui les appelle une fois pour toute
+- appStrings: the app strings
+- scenarioStrings: the scenario strings
+
 
 */
 
@@ -55,8 +59,8 @@ const Chapter = props => {
 
     DisableBackButton();
 
-    const scenarioStrings = getScenarioStrings(props.scenario, props.language);
-    const appStrings = useAppStrings(props.language);
+    const scenarioStrings = props.scenarioStrings;
+    const appStrings = props.appStrings;
 
     const avatarImage = getAvatar(props.scenario, props.avatarImage);
 

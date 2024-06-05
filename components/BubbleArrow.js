@@ -10,6 +10,7 @@ import ScaleAnimation from "../functions/ScaleAnimation";
 - animation: boolean to enable or disable the scale animation (default: false)
 - toggleBubbleAnimation: variable to toggle the animation
 - theme: the theme of the bubble blue/red (default: blue)
+- style
 
 */
 
@@ -25,7 +26,7 @@ const BubbleArrow = props => {
 
 
     return (
-        <Animated.View style={[props.positionArrow == 'bottom' ? styles.globalBottom : styles.globalLeft, { transform: [{ scale: interpolatedScaleAnimation }] }]}>
+        <Animated.View style={[props.positionArrow == 'bottom' ? styles.globalBottom : styles.globalLeft, { transform: [{ scale: interpolatedScaleAnimation }] }, props.style]}>
             <Bubble text={props.text} style={{ maxWidth: '100%' }} theme={props.theme} />
             <Image source={require('./../assets/img/triangle1.png')} style={props.positionArrow == 'bottom' ? styles.triangleBottom : styles.triangleLeft} />
         </Animated.View>
@@ -57,14 +58,14 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 500,
         left: 100,
-        maxWidth: '60%',
+        maxWidth: '50%',
     },
 
     globalLeft: {
         position: 'absolute',
         bottom: 400,
         left: 350,
-        maxWidth: '70%',
+        maxWidth: '50%',
     },
 
 });

@@ -9,7 +9,7 @@ import TopBar from '../components/TopBar';
 import Input from '../components/Input';
 import ErrorBox from '../components/ErrorBox';
 
-import { useAppStrings } from '../functions/LanguageUtils';
+import { useAppStrings, useScenarioStrings } from '../functions/LanguageUtils';
 import ScaleAnimation from '../functions/ScaleAnimation';
 import Colors from '../constants/Colors';
 import Settings from '../constants/Settings';
@@ -18,8 +18,6 @@ import Settings from '../constants/Settings';
 export default function ChronoScreen({ navigation, route }) {
 
 
-    const appStrings = useAppStrings(route.params.language);
-
     const [chrono, setChrono] = React.useState(3);
 
 
@@ -27,12 +25,30 @@ export default function ChronoScreen({ navigation, route }) {
     let interpolatedScaleAnimation = ScaleAnimation(toggleBubbleAnimation, true);
 
 
-  
+    const appStrings = useAppStrings(route.params.language);
+    const scenarioStrings = useScenarioStrings(route.params.scenario, route.params.language);
+
+    
+    let [argAppStrings, setArgAppStrings] = React.useState(null);
+    let [argScenarioStrings, setArgScenarioStrings] = React.useState(null);
+
+    React.useEffect(() => {
+        if (appStrings !== null && appStrings !== undefined) {
+            setArgAppStrings(appStrings);
+        }
+    }, [appStrings]);
+
+    React.useEffect(() => {
+        if (scenarioStrings !== null && scenarioStrings !== undefined) {
+            setArgScenarioStrings(scenarioStrings);
+        }
+    }, [scenarioStrings]);
+
 
     React.useEffect(() => {
 
-        if (Settings.debugMode) { // if debugMode is true, we skip the chrono and go directly to the game
-            navigation.navigate('GameController', { language: route.params.language, scenario: route.params.scenario, startingPoint: route.params.startingPoint, chapter: 1, questNumber: 1 });
+        if (Settings.debugMode && argAppStrings !== null && argScenarioStrings !== null) { // if debugMode is true, we skip the chrono and go directly to the game
+            navigation.navigate('GameController', { language: route.params.language, scenario: route.params.scenario, startingPoint: route.params.startingPoint, chapter: 1, questNumber: 1, appStrings: argAppStrings, scenarioStrings: argScenarioStrings });
         }
 
 
@@ -45,7 +61,7 @@ export default function ChronoScreen({ navigation, route }) {
                 setChrono(appStrings.chronoGo);
                 clearInterval(interval);
                 setTimeout(() => {
-                    navigation.navigate('GameController', { language: route.params.language, scenario: route.params.scenario, startingPoint: route.params.startingPoint, chapter: 1, questNumber: 1});
+                    navigation.navigate('GameController', { language: route.params.language, scenario: route.params.scenario, startingPoint: route.params.startingPoint, chapter: 1, questNumber: 1, appStrings: argAppStrings, scenarioStrings: argScenarioStrings });
                 }, 400);
             }
         }, 1000);

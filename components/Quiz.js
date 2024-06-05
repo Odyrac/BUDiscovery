@@ -5,7 +5,7 @@ import Bubble from './../components/Bubble';
 import TopBar from '../components/TopBar';
 import globalStyles from '../constants/GlobalStyles';
 import DisableBackButton from './../functions/DisableBackButton';
-import { useAppStrings, getQuizStrings, getScenarioStrings } from '../functions/LanguageUtils';
+import { useAppStrings, useQuizStrings, useScenarioStrings } from '../functions/LanguageUtils';
 import LongButton from '../components/LongButton';
 import Avatar from '../components/Avatar';
 import { getAvatar } from '../functions/AvatarUtils';
@@ -26,6 +26,9 @@ import Colors from '../constants/Colors';
 
 - endFunction: the function to call when the chapter ends
 
+- appStrings: the app strings
+- scenarioStrings: the scenario strings
+
 
 */
 
@@ -35,9 +38,9 @@ const Quiz = props => {
 
     DisableBackButton();
 
-    const scenarioStrings = getScenarioStrings(props.scenario, props.language);
-    const appStrings = useAppStrings(props.language);
-    const quizStrings = getQuizStrings(props.language);
+    const scenarioStrings = props.scenarioStrings;
+    const appStrings = props.appStrings;
+    const quizStrings = useQuizStrings(props.language);
 
     const avatarImage = getAvatar(props.scenario, 'bad');
 
@@ -196,7 +199,7 @@ const Quiz = props => {
 
                 <Avatar img={avatarImage} />
 
-                <BubbleArrow text={text} animation={true} positionArrow={position} toggleBubbleAnimation={toggleBubbleAnimation} duration={duration} theme='red' />
+                <BubbleArrow text={text} animation={true} positionArrow={position} toggleBubbleAnimation={toggleBubbleAnimation} duration={duration} theme='red' style={{ maxWidth: '40%' }} />
 
                 {correctAnswer != undefined &&
                     <View style={styles.quizContainer}>
@@ -239,7 +242,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: '50%',
         position: 'absolute',
-        bottom: 200,
+        bottom: 150,
         right: 50,
     },
     answerContainer: {
