@@ -28,7 +28,7 @@ export default function ChronoScreen({ navigation, route }) {
     const appStrings = useAppStrings(route.params.language);
     const scenarioStrings = useScenarioStrings(route.params.scenario, route.params.language);
 
-    
+
     let [argAppStrings, setArgAppStrings] = React.useState(null);
     let [argScenarioStrings, setArgScenarioStrings] = React.useState(null);
 
@@ -56,7 +56,7 @@ export default function ChronoScreen({ navigation, route }) {
             if (chrono > 1) {
                 setToggleBubbleAnimation(!toggleBubbleAnimation);
                 setChrono(chrono - 1);
-            } else {
+            } else if (argAppStrings !== null && argScenarioStrings !== null) {
                 setToggleBubbleAnimation(!toggleBubbleAnimation);
                 setChrono(appStrings.chronoGo);
                 clearInterval(interval);
