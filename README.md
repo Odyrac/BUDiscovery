@@ -2,9 +2,10 @@
 
 BUDiscovery est un Projet Étudiant réalisé au semestre P24 à l'Université de Technologie de Troyes.
 
-## Site du projet
+## Liens
 
-[budiscovery.hlly.fr](https://budiscovery.hlly.fr/)
+* [Site du projet](https://budiscovery.hlly.fr/)
+* [GitHub de l'API](https://github.com/Odyrac/BUDiscoveryAPI)
 
 ## Screenshots
 

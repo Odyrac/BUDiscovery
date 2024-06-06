@@ -11,6 +11,7 @@ import globalStyles from '../constants/GlobalStyles';
 import TopBar from '../components/TopBar';
 import Input from '../components/Input';
 import Card from './../components/Card';
+import { getAvatar } from '../functions/AvatarUtils';
 
 
 
@@ -49,7 +50,20 @@ export default function ChoiceThemeScreen({ navigation, route }) {
     }
 
 
-
+    let [banner1Image, setBanner1Image] = React.useState(null);
+    let [banner2Image, setBanner2Image] = React.useState(null);
+    let [banner3Image, setBanner3Image] = React.useState(null);
+    React.useEffect(() => {
+        (async () => {
+            let img1 = await getAvatar(1, 'banner');
+            setBanner1Image(img1);
+            let img2 = await getAvatar(2, 'banner');
+            setBanner2Image(img2);
+            let img3 = await getAvatar(3, 'banner');
+            setBanner3Image(img3);
+        }
+        )();
+    }, []);
 
 
     return (
@@ -64,11 +78,11 @@ export default function ChoiceThemeScreen({ navigation, route }) {
                 <Bubble text={appStrings.choiceThemeDesc} style={{ marginBottom: 40 }} />
 
 
-                <Card title={scenario3Strings.title} image={require('./../assets/scenarios/3/banner.png')} onPress={() => navigation.navigate('Chrono', { language: route.params.language, scenario: 3, startingPoint: route.params.startingPoint })} style={{ position: 'absolute', left: 140, top: 650, transform: [{ rotate: "340deg" }] }} disabled={scenario3Disabled} disabledText={appStrings.disabledText} />
+                <Card title={scenario3Strings.title} image={banner3Image} onPress={() => navigation.navigate('Chrono', { language: route.params.language, scenario: 3, startingPoint: route.params.startingPoint })} style={{ position: 'absolute', left: 140, top: 650, transform: [{ rotate: "340deg" }] }} disabled={scenario3Disabled} disabledText={appStrings.disabledText} />
 
-                <Card title={scenario2Strings.title} image={require('./../assets/scenarios/2/banner.png')} onPress={() => navigation.navigate('Chrono', { language: route.params.language, scenario: 2, startingPoint: route.params.startingPoint })} style={{ position: 'absolute', left: 430, top: 500, transform: [{ rotate: "10deg" }] }} disabled={scenario2Disabled} disabledText={appStrings.disabledText} />
+                <Card title={scenario2Strings.title} image={banner2Image} onPress={() => navigation.navigate('Chrono', { language: route.params.language, scenario: 2, startingPoint: route.params.startingPoint })} style={{ position: 'absolute', left: 430, top: 500, transform: [{ rotate: "10deg" }] }} disabled={scenario2Disabled} disabledText={appStrings.disabledText} />
 
-                <Card title={scenario1Strings.title} image={require('./../assets/scenarios/1/banner.png')} onPress={() => navigation.navigate('Chrono', { language: route.params.language, scenario: 1, startingPoint: route.params.startingPoint })} style={{ position: 'absolute', left: 150, top: 290 }} disabled={scenario1Disabled} disabledText={appStrings.disabledText} />
+                <Card title={scenario1Strings.title} image={banner1Image} onPress={() => navigation.navigate('Chrono', { language: route.params.language, scenario: 1, startingPoint: route.params.startingPoint })} style={{ position: 'absolute', left: 150, top: 290 }} disabled={scenario1Disabled} disabledText={appStrings.disabledText} />
 
 
 

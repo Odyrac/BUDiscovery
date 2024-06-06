@@ -145,20 +145,3 @@ const getQuizStrings = async (language) => {
 }
 
 export { useQuizStrings };
-
-
-
-/*
-const useQuizStrings = (language) => {
-  switch (language) {
-    case 'en':
-      return require(`./../constants/languages/quizEN.json`);
-    case 'fr':
-      return require(`./../constants/languages/quiz.json`);
-    default:
-      return require(`./../constants/languages/quiz.json`);
-  }
-};
-
-export { useQuizStrings };
-*/

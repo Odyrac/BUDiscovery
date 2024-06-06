@@ -8,8 +8,14 @@ import { StyleSheet, Text, View, Animated, TouchableOpacity, Image } from 'react
 
 const Avatar = props => {
 
+    let [img, setImg] = React.useState(props.img);
+
+    React.useEffect(() => {
+        setImg(props.img);
+    }, [props.img]);
+
     return (
-        <Image source={props.img} style={styles.img} />
+        <Image source={{ uri: img }} style={styles.img} />
     );
 
 }
@@ -25,7 +31,7 @@ const styles = StyleSheet.create({
         left: 50,
         zIndex: 10
     }
- 
+
 });
 
 export default Avatar;

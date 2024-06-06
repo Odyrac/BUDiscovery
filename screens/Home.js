@@ -92,7 +92,7 @@ export default function HomeScreen({ navigation, route }) {
 
 
                 <LongButton text="Lancer une partie" onPress={() => launchGame()} />
-                <LongButton text="Options du jeu" color="transparent" onPress={() => Settings.debugMode ? navigation.navigate('Test') : navigation.navigate('Settings')} />
+                <LongButton text="Options du jeu" color="transparent" onPress={() => navigation.navigate('Settings')} />
 
 
 

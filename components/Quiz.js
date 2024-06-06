@@ -42,11 +42,17 @@ const Quiz = props => {
     const appStrings = props.appStrings;
     const quizStrings = useQuizStrings(props.language);
 
-    const avatarImage = getAvatar(props.scenario, 'bad');
+    let [avatarImage, setAvatarImage] = React.useState(null);
+    React.useEffect(() => {
+        (async () => {
+            const img = await getAvatar(props.scenario, 'bad');
+            setAvatarImage(img);
+        }
+        )();
+    }, []);
+
 
     const [startTimestamp, setStartTimestamp] = React.useState(props.startTimestamp);
-
-
     const [text, setText] = React.useState('');
     const [answer1, setAnswer1] = React.useState('');
     const [answer2, setAnswer2] = React.useState('');
@@ -194,7 +200,7 @@ const Quiz = props => {
             <View style={[globalStyles.containerTopBar]}>
 
                 {Settings.debugMode && <><Text style={{ color: 'white' }}>DEBUG MODE{'\n'}</Text>
-                    <IconTextButton text="Restart" onPress={() => props.navigation.push('GameController', { language: props.language, scenario: props.scenario, startingPoint: props.startingPoint, chapter: 8, questNumber: 1 })} /></>
+                    {/*<IconTextButton text="Restart" onPress={() => props.navigation.push('GameController', { language: props.language, scenario: props.scenario, startingPoint: props.startingPoint, chapter: 8, questNumber: 1 })} />*/}</>
                 }
 
                 <Avatar img={avatarImage} />

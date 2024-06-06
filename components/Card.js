@@ -19,12 +19,12 @@ const Card = props => {
 
         <TouchableOpacity onPress={!props.disabled ? props.onPress : null} activeOpacity={0.8} style={[styles.card, props.style]}>
             <BlurView intensity={70} style={styles.blurContainer}>
-                <Image source={props.image} style={styles.img} />
+                <Image source={{ uri: props.image }} style={styles.img} />
                 <Text style={styles.title}>{props.title}</Text>
             </BlurView>
 
-        {props.disabled && <View style={styles.disabled}><Text style={styles.disabledText}>{props.disabledText}</Text></View>}
-        
+            {props.disabled && <View style={styles.disabled}><Text style={styles.disabledText}>{props.disabledText}</Text></View>}
+
         </TouchableOpacity>
 
     );

@@ -56,6 +56,21 @@ export default function SettingsScreen({ navigation, route }) {
                                 });
                         });
 
+
+                        const img = Settings.img;
+
+                        img.forEach(file => {
+                            let url = serverUrl + file;
+                            FileSystem.downloadAsync(url, FileSystem.documentDirectory + file)
+                                .then(() => {
+                                    console.log('File ' + file + ' downloaded');
+                                })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                    success = false;
+                                });
+                        });
+
                         if (!success) {
                             Alert.alert(
                                 'Erreur',
@@ -68,17 +83,19 @@ export default function SettingsScreen({ navigation, route }) {
                                 ]
                             )
                         } else {
-                            Alert.alert(
-                                'Mise à jour des données',
-                                'Les données ont été mises à jour avec succès. Vous pourriez avoir à redémarrer l\'application pour voir certains changements.',
-                                [
-                                    {
-                                        text: 'OK',
-                                        onPress: () => navigation.navigate('Home'),
-                                        style: 'cancel'
-                                    }
-                                ]
-                            )
+                            setTimeout(() => {
+                                Alert.alert(
+                                    'Mise à jour des données',
+                                    'Les données ont été mises à jour avec succès. Vous pourriez avoir à redémarrer l\'application pour voir certains changements.',
+                                    [
+                                        {
+                                            text: 'OK',
+                                            onPress: () => navigation.navigate('Home'),
+                                            style: 'cancel'
+                                        }
+                                    ]
+                                )
+                            }, 1000);
                         }
                     }
                 }
@@ -96,7 +113,7 @@ export default function SettingsScreen({ navigation, route }) {
 
             <View style={[globalStyles.containerTopBar, globalStyles.containerTopBarCenterVertical]}>
 
-                <Bubble text="Que ce soit lors de la première installation de l'application ou lorsque vous avez modifié des textes ou des images de manière distante (depuis l'API), il faut synchroniser à nouveau les données avec celles du serveur :" style={{ marginBottom: 20 }} />
+                <Bubble text="Que ce soit lors de la première installation de l'application ou lorsque vous avez modifié des textes ou des images de manière distante (depuis l'API), il faut synchroniser à nouveau les données avec celles du serveur." style={{ marginBottom: 20 }} />
                 <IconTextButton text="Mettre à jour les données" icon={require('./../assets/img/cloudDownload.png')} onPress={updateData} />
 
                 <LongButton text="Retour" onPress={() => navigation.navigate('Home')} />

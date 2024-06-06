@@ -62,7 +62,15 @@ const Chapter = props => {
     const scenarioStrings = props.scenarioStrings;
     const appStrings = props.appStrings;
 
-    const avatarImage = getAvatar(props.scenario, props.avatarImage);
+    let [avatarImage, setAvatarImage] = React.useState(null);
+    React.useEffect(() => {
+        (async () => {
+            const img = await getAvatar(props.scenario, props.avatarImage);
+            setAvatarImage(img);
+        }
+        )();
+    }, [props.avatarImage]);
+
 
     const [text, setText] = React.useState('');
     const [position, setPosition] = React.useState('left');
@@ -189,7 +197,7 @@ const Chapter = props => {
             <View style={[globalStyles.containerTopBar]}>
 
                 {Settings.debugMode && <><Text style={{ color: 'white' }}>DEBUG MODE{'\n'}</Text>
-                    <IconTextButton text="Restart" onPress={() => props.navigation.push('GameController', { language: props.language, scenario: props.scenario, startingPoint: props.startingPoint, chapter: 8, questNumber: 1 })} /></>
+                    {/*<IconTextButton text="Restart" onPress={() => props.navigation.push('GameController', { language: props.language, scenario: props.scenario, startingPoint: props.startingPoint, chapter: 8, questNumber: 1 })} />*/}</>
                 }
 
                 <Avatar img={avatarImage} />
@@ -217,8 +225,8 @@ const Chapter = props => {
 
                 {finalScore != undefined &&
                     <View style={[{ position: 'absolute', bottom: 270, right: 100, maxWidth: 350, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }]}>
-                        <Bubble title={`${appStrings.chronoText}${finalScore}`} style={{ maxWidth: '100%' }} titleStyle={{marginBottom: 0}} />
-                        <IconTextButton text={appStrings.feedback} onPress={() => Linking.openURL('https://forms.gle/Tzwe2NXoWopPwUhs9')} icon={require('./../assets/img/link.png')} style={{marginTop: 30}} />
+                        <Bubble title={`${appStrings.chronoText}${finalScore}`} style={{ maxWidth: '100%' }} titleStyle={{ marginBottom: 0 }} />
+                        <IconTextButton text={appStrings.feedback} onPress={() => Linking.openURL('https://forms.gle/Tzwe2NXoWopPwUhs9')} icon={require('./../assets/img/link.png')} style={{ marginTop: 30 }} />
                     </View>
                 }
 

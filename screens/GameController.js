@@ -11,9 +11,7 @@ import Quiz from '../components/Quiz';
 
 export default function GameControllerScreen({ navigation, route }) {
 
-    /*const scenarioStrings = useScenarioStrings(route.params.scenario, route.params.language);
-    const appStrings = useAppStrings(route.params.language);*/
-
+    
     const scenarioStrings = route.params.scenarioStrings;
     const appStrings = route.params.appStrings;
 
